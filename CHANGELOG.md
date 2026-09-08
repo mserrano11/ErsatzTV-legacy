@@ -6,9 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
-- Periodically delete unused artwork from cache folder on disk
 - Next engine:
-  - Add hardware-accelerated padding for QSV on Windows and Linux (note that this requires the latest ETV custom ffmpeg build)
+  - Add hardware-accelerated padding for QSV on Windows, Linux and Docker (note that this requires the latest ETV custom ffmpeg build)
+  - Enable `av1`, `vc1`, `vp8`, `vp9` hardware decoding using QSV when supported by GPU
+- Periodically delete unused artwork from cache folder on disk
+
+### Changed
+- Next engine:
+  - Deinterlace with `send_frame` mode by default; this maintains fps and is significantly more performant. `send_field` and other modes can still be used via channel config.
 
 ### Fixed
 - Fix health checks causing a flood of (harmless) logged errors when quickly navigating away from home page
